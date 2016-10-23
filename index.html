@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>title</title>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="style.css">
+
+
+    </head>
+    <body>
+
+        <div class="voter-wrap"></div>
+
+        <script type="text/template" id="template">
+            <span class="down">—</span>
+            <span class="vote"><%= initialValue %></span>
+            <span class="up">+</span>
+        </script>
+
+        <script src="https://cdn.jsdelivr.net/lodash/4.16.4/lodash.min.js"></script>
+        <script src="main.js"></script>
+        <script>
+            let voter = new Voter({
+                elem: document.querySelector(".voter-wrap"),
+                initialValue: 3,
+                step: 2
+            });
+        </script>
+    </body>
+</html>

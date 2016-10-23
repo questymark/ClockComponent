@@ -1,0 +1,15 @@
+.voter {
+    font-family: Consolas, "Lucida Console", monospace;
+    font-size: 18px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.up,
+.down {
+    cursor: pointer;
+    color: blue;
+    font-weight: bold;
+}
