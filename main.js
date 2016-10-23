@@ -1,22 +1,27 @@
 class Voter {
     constructor(options) {
+
         this.initialValue = options.initialValue || 0;
+        let elem = options.elem;
+        options.elem.appendChild(this._render())
+        this.vote = elem.querySelector(".vote");
+
+        options.elem.addEventListener("click", this._down.bind(this));
+        options.elem.addEventListener("click", this._up.bind(this));
+
+        this.step = options.step || 1;
+
+    }
+
+    _render() {
         let markup = document.querySelector("#template").innerHTML;
         let voter = document.createElement("div");
         voter.innerHTML = _.template(markup)({
             initialValue: this.initialValue
         });
         voter.classList.add("voter");
-        options.elem.appendChild(voter)
 
-        let elem = options.elem;
-        this.vote = elem.querySelector(".vote");
-
-        voter.addEventListener("click", this._down.bind(this));
-        voter.addEventListener("click", this._up.bind(this));
-
-        this.step = options.step || 1;
-
+        return voter;
     }
 
     _down(event) {
